@@ -787,7 +787,7 @@ section[id] {
 /* ===== Project cards: pearl-silver theme ===== */
 .card {
   background: linear-gradient(160deg, #fbf9f4 0%, #f1ede4 55%, #e3eaf1 100%);
-  border: 1px solid rgba(149, 174, 216, 0.5);
+  border: 1px solid rgba(149, 174, 216, 0.3);
   box-shadow: 0 4px 18px rgba(5, 39, 94, 0.06);
 }
 
@@ -842,7 +842,7 @@ section[id]::before {
   background: linear-gradient(
     180deg,
     rgba(187, 206, 215, 0) 0%,
-    rgba(187, 206, 215, 0.5) 50%,
+    rgba(187, 206, 215, 0.3) 50%,
     rgba(187, 206, 215, 0) 100%
   );
 }
