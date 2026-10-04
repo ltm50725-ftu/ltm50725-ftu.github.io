@@ -876,5 +876,5 @@ nav a,
 
 @keyframes skyTwinkle {
   0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
-  50% { opacity: 0.6; transform: scale(1) rotate(45deg); }
+  50% { opacity: 0.5; transform: scale(1) rotate(45deg); }
 }
