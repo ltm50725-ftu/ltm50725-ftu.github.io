@@ -521,3 +521,26 @@ nav a {
 @media (prefers-reduced-motion: reduce) {
   .bubbles span, .hero > .sticker { animation: none; }
 }
+/* ===== Hero: real photo background ===== */
+.hero {
+  background:
+    linear-gradient(180deg, rgba(5, 39, 94, 0.55) 0%, rgba(5, 39, 94, 0.35) 50%, rgba(15, 55, 101, 0.7) 100%),
+    url("hero-ocean.jpg") center / cover no-repeat;
+  animation: none;
+}
+
+.hero::before {
+  opacity: 0.45;
+}
+
+.hero h1 {
+  text-shadow: 0 2px 24px rgba(5, 39, 94, 0.55);
+}
+
+.hero p {
+  text-shadow: 0 1px 12px rgba(5, 39, 94, 0.6);
+}
+
+.bubbles {
+  opacity: 0.5;
+}
