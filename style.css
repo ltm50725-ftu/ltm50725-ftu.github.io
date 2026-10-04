@@ -575,3 +575,52 @@ nav a {
     transition: none;
   }
 }
+/* ===== Decorative real images ===== */
+body {
+  overflow-x: clip;
+}
+
+section[id] {
+  position: relative;
+}
+
+.deco {
+  position: absolute;
+  z-index: -1;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: multiply; /* makes the white background of .jpg files vanish */
+  animation: floaty 10s ease-in-out infinite;
+}
+
+.deco-png {
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 12px 14px rgba(5, 39, 94, 0.18));
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-14px) rotate(calc(var(--r, 0deg) * -1)); }
+}
+
+.d-about    { top: 10px;  right: -120px; width: 190px; --r: 8deg; }
+.d-edu1     { top: 0;     right: -70px;  width: 150px; --r: -6deg; animation-delay: 1s; }
+.d-edu2     { top: 90px;  left: -80px;   width: 80px;  --r: 12deg; animation-delay: 2s; }
+.d-skills   { top: 20px;  right: -100px; width: 140px; --r: 5deg;  animation-delay: 0.5s; }
+.d-proj1    { top: 10px;  left: -110px;  width: 140px; --r: -10deg; animation-delay: 1.5s; }
+.d-proj2    { top: 0;     right: -60px;  width: 100px; --r: 14deg; animation-delay: 2.5s; }
+.d-contact1 { top: 20px;  right: -90px;  width: 150px; --r: 6deg;  animation-delay: 1s; }
+.d-contact2 { bottom: 20px; left: -60px; width: 70px;  --r: -8deg; animation-delay: 2s; }
+
+/* Smaller screens: keep images faint so they never hide the text */
+@media (max-width: 1100px) {
+  .deco {
+    opacity: 0.22;
+    width: 90px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deco { animation: none; }
+}
