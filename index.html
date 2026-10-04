@@ -191,5 +191,46 @@
 
     targets.forEach((el) => io.observe(el));
   </script>
+    <script>
+    // Twinkling stars scattered across the whole page
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const sky = document.createElement('div');
+      sky.className = 'sky';
+      sky.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(sky);
+
+      function build() {
+        sky.innerHTML = '';
+        const h = document.documentElement.scrollHeight;
+        const hero = document.querySelector('.hero');
+        const heroEnd = hero ? hero.offsetTop + hero.offsetHeight : 0;
+        sky.style.height = h + 'px';
+
+        const count = Math.round(h / 110);
+        for (let i = 0; i < count; i++) {
+          const s = document.createElement('span');
+          const y = Math.random() * h;
+          s.style.setProperty('--x', (Math.random() * 98 + 1).toFixed(1) + '%');
+          s.style.setProperty('--y', y.toFixed(0) + 'px');
+          s.style.setProperty('--s', (7 + Math.random() * 12).toFixed(0) + 'px');
+          s.style.setProperty('--d', (Math.random() * 4).toFixed(1) + 's');
+          s.style.setProperty('--t', (3 + Math.random() * 2.5).toFixed(1) + 's');
+          if (y < heroEnd) s.classList.add('on-dark');
+          sky.appendChild(s);
+        }
+      }
+
+      let lastWidth = window.innerWidth;
+      window.addEventListener('load', build);
+      window.addEventListener('resize', function () {
+        if (window.innerWidth !== lastWidth) {
+          lastWidth = window.innerWidth;
+          build();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
