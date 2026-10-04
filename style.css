@@ -696,3 +696,46 @@ section[id] {
     width: 70px !important;
   }
 }
+/* ===== Sticker clusters: sharp + blurred, alternating sides ===== */
+.cluster {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.cluster img {
+  position: absolute;
+  height: auto;
+  mix-blend-mode: multiply; /* hides the white background of .jpg files */
+  animation: floaty 10s ease-in-out infinite;
+}
+
+.cluster img.png {
+  mix-blend-mode: normal;
+}
+
+.cluster .sharp {
+  opacity: 0.95;
+  filter: brightness(1.06);
+}
+
+.cluster .png.sharp {
+  filter: drop-shadow(0 10px 12px rgba(5, 39, 94, 0.2));
+}
+
+.cluster .soft {
+  opacity: 0.4;
+  filter: blur(1.4px) brightness(1.1);
+}
+
+@media (max-width: 700px) {
+  .cluster {
+    zoom: 0.6;
+    opacity: 0.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cluster img { animation: none; }
+}
