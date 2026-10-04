@@ -236,3 +236,11 @@ section[id] {
   background: #dbeafe;
   color: #1d4ed8;
 }
+
+.card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
