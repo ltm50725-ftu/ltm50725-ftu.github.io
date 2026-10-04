@@ -653,10 +653,7 @@ section[id] {
 @media (prefers-reduced-motion: reduce) {
   .stars span { animation: none; opacity: 0.6; }
 }
-/* Temporarily hide decorative images */
-.deco {
-  display: none !important;
-}
+
 /* ===== Hero button arrow ===== */
 .btn-arrow {
   display: inline-block;
@@ -671,4 +668,31 @@ section[id] {
 
 @media (prefers-reduced-motion: reduce) {
   .btn-arrow { animation: none; }
+}
+/* ===== Decorative images: soft, blurred, close to the text ===== */
+.deco {
+  display: block;
+  opacity: 0.4;
+  filter: blur(1.2px) brightness(1.1); /* brightness pushes near-white backgrounds to pure white */
+}
+
+.deco-png {
+  filter: blur(1.2px);
+}
+
+.d-about    { top: 0;      right: 0;     left: auto; bottom: auto; width: 120px !important; --r: 8deg; }
+.d-edu1     { top: 10px;   right: 10px;  left: auto; bottom: auto; width: 110px !important; --r: -6deg; }
+.d-edu2     { bottom: 20px; right: 150px; left: auto; top: auto;   width: 70px !important;  --r: 12deg; }
+.d-skills   { top: 10px;   right: 0;     left: auto; bottom: auto; width: 120px !important; --r: 5deg; }
+.d-skills2  { bottom: 0;   right: 130px; left: auto; top: auto;    width: 100px !important; --r: -8deg; animation-delay: 1.5s; }
+.d-proj1    { top: -10px;  right: 10px;  left: auto; bottom: auto; width: 120px !important; --r: -10deg; }
+.d-proj2    { top: 0;      right: 150px; left: auto; bottom: auto; width: 80px !important;  --r: 14deg; }
+.d-contact1 { top: 20px;   right: 20px;  left: auto; bottom: auto; width: 120px !important; --r: 6deg; }
+.d-contact2 { bottom: 30px; right: 160px; left: auto; top: auto;   width: 80px !important;  --r: -8deg; }
+
+@media (max-width: 700px) {
+  .deco {
+    opacity: 0.3;
+    width: 70px !important;
+  }
 }
