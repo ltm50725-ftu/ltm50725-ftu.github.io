@@ -191,7 +191,7 @@
 
     targets.forEach((el) => io.observe(el));
   </script>
-    <script>
+   <script>
     // Twinkling stars scattered across the whole page
     (function () {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -203,15 +203,20 @@
 
       function build() {
         sky.innerHTML = '';
-        const h = document.documentElement.scrollHeight;
+        sky.style.height = '0px'; // reset first so the sky never stretches the page
+
+        const footer = document.querySelector('footer');
         const hero = document.querySelector('.hero');
-        const heroEnd = hero ? hero.offsetTop + hero.offsetHeight : 0;
+        const h = footer
+          ? footer.getBoundingClientRect().bottom + window.scrollY
+          : document.body.offsetHeight;
+        const heroEnd = hero ? hero.getBoundingClientRect().bottom + window.scrollY : 0;
         sky.style.height = h + 'px';
 
-        const count = Math.round(h / 180);
+        const count = Math.round(h / 110);
         for (let i = 0; i < count; i++) {
           const s = document.createElement('span');
-          const y = Math.random() * h;
+          const y = Math.random() * (h - 30);
           s.style.setProperty('--x', (Math.random() * 98 + 1).toFixed(1) + '%');
           s.style.setProperty('--y', y.toFixed(0) + 'px');
           s.style.setProperty('--s', (7 + Math.random() * 12).toFixed(0) + 'px');
@@ -224,6 +229,7 @@
 
       let lastWidth = window.innerWidth;
       window.addEventListener('load', build);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
       window.addEventListener('resize', function () {
         if (window.innerWidth !== lastWidth) {
           lastWidth = window.innerWidth;
