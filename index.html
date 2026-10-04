@@ -212,7 +212,7 @@
         const heroEnd = hero ? hero.getBoundingClientRect().bottom + window.scrollY : 0;
         sky.style.height = h + 'px';
 
-        const count = Math.round(h / 110);
+        const count = Math.round(h / 180);
         for (let i = 0; i < count; i++) {
           const s = document.createElement('span');
           const y = Math.random() * (h - 30);
