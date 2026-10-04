@@ -784,3 +784,34 @@ section[id] {
   background: var(--ocean);
   color: var(--pearl);
 }
+/* ===== Project cards: pearl-silver theme ===== */
+.card {
+  background: linear-gradient(160deg, #fbf9f4 0%, #eef1f4 55%, #e3eaf1 100%);
+  border: 1px solid rgba(149, 174, 216, 0.5);
+  box-shadow: 0 4px 18px rgba(5, 39, 94, 0.06);
+}
+
+.card:hover {
+  border-color: var(--azul);
+  box-shadow: 0 14px 34px rgba(5, 39, 94, 0.16);
+}
+
+.card .tag {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--dive);
+  border: 1px solid var(--pearl-dark);
+}
+
+.card .tag-club {
+  background: rgba(149, 174, 216, 0.28);
+  color: var(--ocean);
+  border: 1px solid rgba(149, 174, 216, 0.5);
+}
+
+.card .timeline-meta {
+  color: #4d607c;
+}
+
+.card .programs-title {
+  color: var(--deep);
+}
