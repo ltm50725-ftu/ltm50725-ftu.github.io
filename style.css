@@ -244,3 +244,9 @@ section[id] {
   border-radius: 8px;
   margin-bottom: 16px;
 }
+
+.programs-title {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #333;
+}
