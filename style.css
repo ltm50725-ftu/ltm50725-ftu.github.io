@@ -916,3 +916,39 @@ nav a,
 .timeline-meta {
   font-size: 0.95rem;
 }
+/* ===== Page-wide twinkling stars ===== */
+.hero > .stars {
+  display: none; /* old banner-only stars */
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px rgba(149, 174, 216, 0.9));
+}
+
+.sky span {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: var(--s);
+  background: #6f93cc; /* blue stars on light background */
+  clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+  opacity: 0;
+  animation: skyTwinkle var(--t) ease-in-out var(--d) infinite;
+}
+
+.sky span.on-dark {
+  background: #fff; /* white stars on the dark banner */
+}
+
+@keyframes skyTwinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+  50% { opacity: 0.9; transform: scale(1) rotate(45deg); }
+}
