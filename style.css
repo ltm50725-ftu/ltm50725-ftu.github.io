@@ -739,3 +739,8 @@ section[id] {
 @media (prefers-reduced-motion: reduce) {
   .cluster img { animation: none; }
 }
+/* Hide all decorative images */
+.deco,
+.cluster {
+  display: none !important;
+}
