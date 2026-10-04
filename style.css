@@ -815,3 +815,47 @@ section[id] {
 .card .programs-title {
   color: var(--deep);
 }
+/* ===== Clear separation between major sections ===== */
+body {
+  overflow-x: clip;
+}
+
+section[id] {
+  position: relative;
+  isolation: isolate;
+  padding: 80px 20px;
+}
+
+/* Full-width background band behind each section */
+section[id]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+#education::before,
+#projects::before {
+  background: linear-gradient(180deg, #e9eef3 0%, #e1e9f0 100%);
+  border-top: 1px solid rgba(149, 174, 216, 0.5);
+  border-bottom: 1px solid rgba(149, 174, 216, 0.5);
+}
+
+/* Short accent bar under every section title */
+section[id] h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ocean), var(--azul));
+}
+
+section[id] h2 {
+  margin-bottom: 32px;
+}
