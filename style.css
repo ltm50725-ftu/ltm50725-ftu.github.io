@@ -544,3 +544,34 @@ nav a {
 .bubbles {
   opacity: 0.5;
 }
+/* ===== Scroll progress & reveal ===== */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  z-index: 20;
+  background: linear-gradient(90deg, var(--azul), var(--lagoon), var(--pearl-dark));
+  box-shadow: 0 0 10px rgba(149, 174, 216, 0.7);
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+.js .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
