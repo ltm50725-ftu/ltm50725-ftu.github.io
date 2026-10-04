@@ -195,3 +195,13 @@ section[id] {
   font-size: 0.95rem;
   margin-bottom: 8px;
 }
+
+.skill-group {
+  font-size: 1.05rem;
+  color: #444;
+  margin: 24px 0 10px;
+}
+
+.skill-group:first-of-type {
+  margin-top: 0;
+}
