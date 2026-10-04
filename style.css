@@ -461,3 +461,63 @@ nav a {
 @media (prefers-reduced-motion: reduce) {
   .hero, .hero::before { animation: none; }
 }
+
+/* ===== Hero: bubbles & stickers ===== */
+.hero > .bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bubbles span {
+  position: absolute;
+  bottom: -30px;
+  left: var(--x);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, rgba(255, 255, 255, 0.35) 40%, rgba(187, 206, 215, 0.2));
+  box-shadow: inset -2px -2px 6px rgba(149, 174, 216, 0.45);
+  opacity: 0;
+  animation: rise var(--t) linear var(--d) infinite;
+}
+
+@keyframes rise {
+  0% { transform: translate(0, 0); opacity: 0; }
+  10% { opacity: 0.9; }
+  50% { transform: translate(14px, -220px); }
+  100% { transform: translate(-10px, -520px); opacity: 0; }
+}
+
+.hero > .sticker {
+  position: absolute;
+  z-index: 1;
+  font-size: 2.6rem;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.3));
+  animation: bob 5s ease-in-out infinite;
+}
+
+.s1 { top: 18%; left: 8%;  --r: -14deg; animation-delay: 0s; }
+.s2 { top: 14%; left: 28%; --r: 10deg;  animation-delay: 1s; font-size: 1.8rem !important; }
+.s3 { top: 52%; left: 12%; --r: -8deg;  animation-delay: 2s; }
+.s4 { top: 20%; right: 9%; --r: 12deg;  animation-delay: 0.5s; }
+.s5 { top: 55%; right: 12%; --r: -10deg; animation-delay: 1.5s; }
+.s6 { top: 12%; right: 30%; --r: 14deg; animation-delay: 2.5s; font-size: 1.8rem !important; }
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(var(--r)); }
+  50% { transform: translateY(-16px) rotate(calc(var(--r) * -1)); }
+}
+
+@media (max-width: 700px) {
+  .hero > .sticker { font-size: 1.7rem; }
+  .s3, .s5 { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubbles span, .hero > .sticker { animation: none; }
+}
