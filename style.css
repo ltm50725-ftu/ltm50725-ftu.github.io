@@ -180,3 +180,18 @@ section[id] {
   transform: translateY(-2px);
   text-decoration: none;
 }
+.timeline-item {
+  border-left: 3px solid #2563eb;
+  padding-left: 20px;
+}
+
+.timeline-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.timeline-meta {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
