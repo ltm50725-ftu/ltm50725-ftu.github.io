@@ -250,3 +250,96 @@ section[id] {
   font-weight: 600;
   color: #333;
 }
+
+/* ===== Ocean & Pearl theme ===== */
+:root {
+  --deep: #05275e;
+  --dive: #0f3765;
+  --ocean: #0a5993;
+  --azul: #95aed8;
+  --lagoon: #bbced7;
+  --pearl: #f7f4ee;
+  --pearl-dark: #e4e0d7;
+  --text: #1b2a41;
+}
+
+body {
+  background: var(--pearl);
+  color: var(--text);
+}
+
+header {
+  background: rgba(247, 244, 238, 0.92);
+  box-shadow: 0 1px 0 var(--pearl-dark);
+}
+
+nav a {
+  color: var(--dive);
+}
+
+nav a:hover {
+  color: var(--ocean);
+}
+
+a {
+  color: var(--ocean);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--deep), var(--ocean));
+  color: var(--pearl);
+}
+
+.btn {
+  background: var(--pearl);
+  color: var(--deep);
+}
+
+section h2 {
+  color: var(--deep);
+}
+
+.skill-group {
+  color: var(--dive);
+}
+
+.skills li {
+  background: rgba(149, 174, 216, 0.25);
+  color: var(--deep);
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--pearl-dark);
+}
+
+.card:hover {
+  box-shadow: 0 10px 28px rgba(5, 39, 94, 0.12);
+}
+
+.tag {
+  background: var(--pearl-dark);
+  color: var(--dive);
+}
+
+.tag-club {
+  background: rgba(149, 174, 216, 0.3);
+  color: var(--ocean);
+}
+
+.timeline-item {
+  border-left-color: var(--ocean);
+}
+
+.timeline-meta {
+  color: #5b6b82;
+}
+
+.avatar {
+  border-color: var(--lagoon);
+}
+
+footer {
+  background: var(--deep);
+  color: var(--lagoon);
+}
