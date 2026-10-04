@@ -142,3 +142,22 @@ nav a:hover {
 section[id] {
   scroll-margin-top: 60px;
 }
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #eef2ff;
+}
+
+.about-content p {
+  flex: 1;
+  min-width: 240px;
+}
