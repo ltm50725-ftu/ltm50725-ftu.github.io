@@ -83,3 +83,28 @@ section h2 {
 .details li {
   margin-bottom: 6px;
 }
+.contact-list {
+  list-style: none;
+  margin-top: 12px;
+}
+
+.contact-list li {
+  margin-bottom: 8px;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  background: #f3f4f6;
+  color: #666;
+  font-size: 0.9rem;
+}
