@@ -873,3 +873,46 @@ section[id] h2::after {
 section[id] h2 {
   margin-bottom: 32px;
 }
+/* ===== Typography v2: Source Serif 4 + Source Sans 3 ===== */
+body {
+  font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+section h2 {
+  font-size: 2rem;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+.timeline-item h3 {
+  font-size: 1.3rem;
+}
+
+.skill-group,
+nav a,
+.btn,
+.tag,
+.hero .eyebrow {
+  font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+}
+
+.timeline-meta {
+  font-size: 0.95rem;
+}
