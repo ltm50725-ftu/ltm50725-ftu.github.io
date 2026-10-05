@@ -1241,3 +1241,19 @@ nav a,
     gap: 22px;
   }
 }
+/* ===== Gallery v2: small thumbnails + auto-rotate ===== */
+.gallery-main img {
+  transition: opacity 0.25s ease;
+}
+
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gallery-thumbs button {
+  flex: none;
+  width: 64px;
+  border-radius: 8px;
+}
