@@ -1393,3 +1393,32 @@ nav a,
   0%, 100% { transform: rotate(-8deg); }
   50% { transform: rotate(-20deg); }
 }
+/* ===== Flower hanging to the left of the "Skills" title ===== */
+#skills h2 {
+  position: relative;
+}
+
+.h2-flower-left {
+  position: absolute;
+  left: -50px;
+  top: -2px;
+  width: 40px;
+  margin: 0;
+  transform: rotate(-10deg);
+  animation-name: flowerSwayLeft;
+}
+
+@keyframes flowerSwayLeft {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(-18deg); }
+}
+
+/* Narrow screens: no room in the margin, so sit right before the text */
+@media (max-width: 960px) {
+  .h2-flower-left {
+    position: relative;
+    left: auto;
+    top: -6px;
+    margin-right: 6px;
+  }
+}
