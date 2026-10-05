@@ -1356,3 +1356,27 @@ nav a,
     padding-top: 48px;
   }
 }
+/* ===== Small lily next to the "About Me" title ===== */
+.h2-flower {
+  display: inline-block;
+  width: 38px;
+  height: auto;
+  margin-left: 2px;
+  vertical-align: text-top;
+  position: relative;
+  top: -6px;
+  transform: rotate(14deg);
+  filter: drop-shadow(0 4px 6px rgba(5, 39, 94, 0.15));
+  pointer-events: none;
+  user-select: none;
+  animation: flowerSway 6s ease-in-out infinite;
+}
+
+@keyframes flowerSway {
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(22deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .h2-flower { animation: none; }
+}
