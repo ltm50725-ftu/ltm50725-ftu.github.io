@@ -97,13 +97,19 @@
     </ul>
   </section>
   
-        <section id="projects">
+          <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
 
       <article class="project">
-                <div class="project-media project-media-shot">
-          <img src="auction.jpg" alt="AuctionHub home page screenshot">
+        <div class="gallery">
+          <div class="gallery-main">
+            <img src="auction.jpg" alt="AuctionHub screenshot">
+          </div>
+          <div class="gallery-thumbs">
+            <button type="button" class="active" data-src="auction.jpg"><img src="auction.jpg" alt="AuctionHub screenshot 1"></button>
+            <button type="button" data-src="hub.jpg"><img src="hub.jpg" alt="AuctionHub screenshot 2"></button>
+          </div>
         </div>
         <div class="project-body">
           <p class="tag tag-club">Course Project</p>
@@ -127,8 +133,14 @@
       </article>
 
       <article class="project">
-        <div class="project-media">
-          <img src="tetdochoem.jpg" alt="Volunteers and children at the Tết Đỏ Cho Em program">
+        <div class="gallery">
+          <div class="gallery-main">
+            <img src="tetdochoem.jpg" alt="Volunteers and children at the Tết Đỏ Cho Em program">
+          </div>
+          <div class="gallery-thumbs">
+            <button type="button" class="active" data-src="tetdochoem.jpg"><img src="tetdochoem.jpg" alt="Tết Đỏ Cho Em photo 1"></button>
+            <button type="button" data-src="tetdohi.jpg"><img src="tetdohi.jpg" alt="Tết Đỏ Cho Em photo 2"></button>
+          </div>
         </div>
         <div class="project-body">
           <p class="tag">Volunteer Project</p>
@@ -282,6 +294,21 @@
         }
       });
     })();
+  </script>
+    <script>
+    // Project galleries: click a thumbnail to show that photo in the large frame
+    document.querySelectorAll('.gallery').forEach(function (gallery) {
+      var main = gallery.querySelector('.gallery-main img');
+      var buttons = gallery.querySelectorAll('.gallery-thumbs button');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          main.src = btn.dataset.src;
+          main.alt = btn.querySelector('img').alt;
+          buttons.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+        });
+      });
+    });
   </script>
 </body>
 </html>
