@@ -1223,3 +1223,21 @@ nav a,
     gap: 22px;
   }
 }
+/* ===== Projects: larger images ===== */
+.project,
+.project:nth-child(even) {
+  grid-template-columns: 6fr 6fr;
+  gap: 32px;
+}
+
+.gallery-main {
+  aspect-ratio: 3 / 2;
+}
+
+@media (max-width: 800px) {
+  .project,
+  .project:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
