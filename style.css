@@ -1130,3 +1130,96 @@ nav a,
 .project-media-shot img {
   object-position: top center;
 }
+/* ===== Projects v2: horizontal layout + image gallery ===== */
+.projects {
+  gap: 0;
+}
+
+.project,
+.project:nth-child(even) {
+  grid-template-columns: 4fr 8fr;
+  gap: 36px;
+  align-items: start;
+  overflow: visible;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.project:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.project + .project {
+  margin-top: 56px;
+  padding-top: 56px;
+  border-top: 1px solid rgba(149, 174, 216, 0.5);
+}
+
+.gallery {
+  display: grid;
+  gap: 12px;
+}
+
+.gallery-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid rgba(149, 174, 216, 0.5);
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--deep), var(--dive));
+  box-shadow: 0 8px 24px rgba(5, 39, 94, 0.12);
+}
+
+.gallery-main img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* shows the whole photo, never cuts it */
+}
+
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.gallery-thumbs button {
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  opacity: 0.55;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery-thumbs button:hover {
+  opacity: 1;
+}
+
+.gallery-thumbs button.active {
+  opacity: 1;
+  border-color: var(--ocean);
+}
+
+.gallery-thumbs img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  .project,
+  .project:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
