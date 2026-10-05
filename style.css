@@ -1380,3 +1380,16 @@ nav a,
 @media (prefers-reduced-motion: reduce) {
   .h2-flower { animation: none; }
 }
+/* ===== White flower next to the "Contact" title (.png) ===== */
+.h2-flower-png {
+  width: 42px;
+  mix-blend-mode: multiply; /* makes the white background of the .png vanish */
+  filter: brightness(1.1);
+  transform: rotate(-12deg);
+  animation-name: flowerSwayAlt;
+}
+
+@keyframes flowerSwayAlt {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(-20deg); }
+}
