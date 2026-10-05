@@ -1127,3 +1127,6 @@ nav a,
     gap: 22px;
   }
 }
+.project-media-shot img {
+  object-position: top center;
+}
