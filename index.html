@@ -102,14 +102,12 @@
     <div class="projects">
 
       <article class="project">
-        <div class="gallery">
+               <div class="gallery" data-images="auction.jpg,hub.jpg" data-alt="AuctionHub screenshot">
           <div class="gallery-main">
-            <img src="auction.jpg" alt="AuctionHub screenshot">
+            <img src="auction.jpg" alt="AuctionHub screenshot 1">
           </div>
-          <div class="gallery-thumbs">
-            <button type="button" class="active" data-src="auction.jpg"><img src="auction.jpg" alt="AuctionHub screenshot 1"></button>
-            <button type="button" data-src="hub.jpg"><img src="hub.jpg" alt="AuctionHub screenshot 2"></button>
-          </div>
+          <div class="gallery-thumbs"></div>
+        </div>
         </div>
         <div class="project-body">
           <p class="tag tag-club">Course Project</p>
@@ -133,14 +131,11 @@
       </article>
 
       <article class="project">
-        <div class="gallery">
+        <div class="gallery" data-images="tetdochoem.jpg,tetdohi.jpg" data-alt="Tết Đỏ Cho Em program photo">
           <div class="gallery-main">
-            <img src="tetdochoem.jpg" alt="Volunteers and children at the Tết Đỏ Cho Em program">
+            <img src="tetdochoem.jpg" alt="Tết Đỏ Cho Em program photo 1">
           </div>
-          <div class="gallery-thumbs">
-            <button type="button" class="active" data-src="tetdochoem.jpg"><img src="tetdochoem.jpg" alt="Tết Đỏ Cho Em photo 1"></button>
-            <button type="button" data-src="tetdohi.jpg"><img src="tetdohi.jpg" alt="Tết Đỏ Cho Em photo 2"></button>
-          </div>
+          <div class="gallery-thumbs"></div>
         </div>
         <div class="project-body">
           <p class="tag">Volunteer Project</p>
@@ -295,19 +290,56 @@
       });
     })();
   </script>
-    <script>
-    // Project galleries: click a thumbnail to show that photo in the large frame
-    document.querySelectorAll('.gallery').forEach(function (gallery) {
+     <script>
+    // Project galleries: small thumbnails, auto-rotate, pause on hover
+    document.querySelectorAll('.gallery[data-images]').forEach(function (gallery) {
+      var images = gallery.dataset.images.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+      var alt = gallery.dataset.alt || 'Project photo';
       var main = gallery.querySelector('.gallery-main img');
-      var buttons = gallery.querySelectorAll('.gallery-thumbs button');
-      buttons.forEach(function (btn) {
+      var thumbs = gallery.querySelector('.gallery-thumbs');
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var index = 0, timer = null, hovering = false;
+
+      images.forEach(function (src, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.setAttribute('aria-label', alt + ' ' + (i + 1));
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        btn.appendChild(img);
         btn.addEventListener('click', function () {
-          main.src = btn.dataset.src;
-          main.alt = btn.querySelector('img').alt;
-          buttons.forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
+          show(i);
+          if (!hovering) restart();
         });
+        thumbs.appendChild(btn);
       });
+
+      var buttons = thumbs.querySelectorAll('button');
+      if (buttons[0]) buttons[0].classList.add('active');
+      if (images.length < 2) thumbs.style.display = 'none';
+
+      function show(i) {
+        index = i;
+        buttons.forEach(function (b, j) { b.classList.toggle('active', j === i); });
+        main.style.opacity = 0;
+        setTimeout(function () {
+          main.src = images[i];
+          main.alt = alt + ' ' + (i + 1);
+          main.style.opacity = 1;
+        }, 220);
+      }
+
+      function next() { show((index + 1) % images.length); }
+      function start() {
+        if (!reduceMotion && images.length > 1 && !timer) timer = setInterval(next, 4000);
+      }
+      function stop() { clearInterval(timer); timer = null; }
+      function restart() { stop(); start(); }
+
+      gallery.addEventListener('mouseenter', function () { hovering = true; stop(); });
+      gallery.addEventListener('mouseleave', function () { hovering = false; start(); });
+      start();
     });
   </script>
 </body>
