@@ -1398,7 +1398,7 @@ nav a,
   position: relative;
 }
 
-.h2-flower-left {
+.h2-flower-right {
   position: absolute;
   left: -50px;
   top: -2px;
@@ -1415,10 +1415,10 @@ nav a,
 
 /* Narrow screens: no room in the margin, so sit right before the text */
 @media (max-width: 960px) {
-  .h2-flower-left {
+  .h2-flower-right {
     position: relative;
     left: auto;
     top: -6px;
-    margin-right: 6px;
+    margin-left: 2px;
   }
 }
